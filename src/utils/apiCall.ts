@@ -1,4 +1,5 @@
 import axios, { Method } from "axios";
+const apiURL = process.env.REACT_APP_API_URL ? process.env.REACT_APP_API_URL : '';
 
 const apiCall = async (
   endpoint = "",
@@ -8,7 +9,7 @@ const apiCall = async (
 ) => {
   const params = {
     method: method,
-    url: endpoint,
+    url: `${apiURL}${endpoint}`,
     headers: headers,
   };
   try {
