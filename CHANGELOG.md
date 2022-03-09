@@ -3,6 +3,8 @@
 ## 0.0.2
 
 - Move api call files folder to utils/server
+- Move iconify package to regular dependency
+- Move @types to dev dependency
 
 ## 0.0.1
 
