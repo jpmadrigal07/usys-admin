@@ -1,6 +1,7 @@
 {
-  "name": "lspu-main",
-  "version": "0.0.18",
+  "name": "usys-admin",
+  "version": "0.0.0",
+  "description": "This is one of the frontend service of the USYS App",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.1",
