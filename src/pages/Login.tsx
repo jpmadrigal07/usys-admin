@@ -12,7 +12,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from 'react-router-dom'
 import { Icon } from '@iconify/react';
 
-import { login } from "../utils/auth";
+import { login } from "../utils/server/auth";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
