@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import moment from "moment";
 // import { NAVBAR_MENU } from "../constants";
 import { useMutation } from "react-query";
-import { verify } from "../utils/auth";
+import { verify } from "../utils/server/auth";
 import { useLocation, useNavigate } from "react-router-dom";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
 import Cookies from "js-cookie";
