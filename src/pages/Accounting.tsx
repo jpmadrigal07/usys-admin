@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 const Accounting = () => {
-  return <div>Accounting</div>;
+  return <div> Accounting</div>;
 };
 
 export default Accounting;
