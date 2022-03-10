@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.4
+
+- Remove class on main body html
+- Delete App.tsx and App.test.tsx
+- Added prettier module
+
 ## 0.0.3
 
 - Added husky pre commit
