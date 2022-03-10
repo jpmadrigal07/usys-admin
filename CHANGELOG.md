@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.3
+
+- Added husky pre commit
+- Change Accounting for husky test
+
 ## 0.0.2
 
 - Move api call files folder to utils/server
