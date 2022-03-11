@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.5
+
+- Added package-lock.json to gitignore
+
 ## 0.0.4
 
 - Remove class on main body html
