@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.7
+
+-Settings Page was added
+-The icons are added inside the settigns page
+
 ## 0.0.5
 
 - Added package-lock.json to gitignore
