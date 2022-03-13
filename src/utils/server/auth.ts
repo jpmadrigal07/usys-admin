@@ -1,7 +1,7 @@
 import apiCall from "./apiCall";
 
 // includes
-const BASE = "/api/auth";
+const BASE = "http://localhost:5000/api/auth";
 const POST_HEADERS = {
   "Content-Type": "application/json",
 };
