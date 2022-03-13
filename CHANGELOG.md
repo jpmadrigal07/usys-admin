@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.6
+
+- Added dummy Settings page
+- Added StudentType page
+- Added route for studenttype at routes/index.js
+- Update Table
+
 ## 0.0.5
 
 - Added package-lock.json to gitignore
