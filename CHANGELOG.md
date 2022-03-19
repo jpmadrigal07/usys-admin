@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.7
+
+-Settings Page was added
+-The icons are added inside the settigns page
+
 ## 0.0.6
 
 - Fixed the Hover of the icon.
