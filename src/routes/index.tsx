@@ -50,6 +50,14 @@ export default function Router() {
         { path: "grade", element: <Grade /> },
         { path: "registrar", element: <Registrar /> },
         { path: "settings", element: <Settings /> },
+        {
+          path: "settings",
+          // element: <Settings />,
+          children: [
+            { path: "", element: <Settings /> },
+            { path: "studenttype", element: <StudentType /> },
+          ],
+        },
       ],
     },
     // { path: '*', element: <Navigate to="/404" replace /> }
@@ -74,5 +82,8 @@ const Enrollment = Loadable(lazy(() => import("../pages/Enrollment")));
 const EntranceExam = Loadable(lazy(() => import("../pages/Entrance Exam")));
 const Grade = Loadable(lazy(() => import("../pages/Grade")));
 const Settings = Loadable(lazy(() => import("../pages/Settings")));
+const StudentType = Loadable(
+  lazy(() => import("../pages/Settings/StudentType"))
+);
 // Main
 // const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));

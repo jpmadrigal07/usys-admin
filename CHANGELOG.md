@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.8
+
+- Added StudentType page
+- Added route for studenttype at routes/index.js
+- Update Table
+
 ## 0.0.7
 
 -Settings Page was added
