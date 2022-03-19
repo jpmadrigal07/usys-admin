@@ -49,6 +49,7 @@ export default function Router() {
         { path: "entrance-exam", element: <EntranceExam /> },
         { path: "grade", element: <Grade /> },
         { path: "registrar", element: <Registrar /> },
+        { path: "settings", element: <Settings /> },
         {
           path: "settings",
           // element: <Settings />,
