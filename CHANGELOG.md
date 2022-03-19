@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.0.9
+
+- Added dummy Settings page
+- Added dummy StudentType page
+- Added CreateStudentType
+- Added route for createstudenttype at routes/index.js
+
 ## 0.0.8
 
 - Added StudentType page

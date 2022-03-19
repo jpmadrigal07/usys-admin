@@ -56,6 +56,7 @@ export default function Router() {
           children: [
             { path: "", element: <Settings /> },
             { path: "studenttype", element: <StudentType /> },
+            { path: "createstudenttype", element: <CreateStudentType /> },
           ],
         },
       ],
@@ -84,6 +85,9 @@ const Grade = Loadable(lazy(() => import("../pages/Grade")));
 const Settings = Loadable(lazy(() => import("../pages/Settings")));
 const StudentType = Loadable(
   lazy(() => import("../pages/Settings/StudentType"))
+);
+const CreateStudentType = Loadable(
+  lazy(() => import("../pages/Settings/CreateStudentType"))
 );
 // Main
 // const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));
