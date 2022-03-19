@@ -5,6 +5,10 @@
 -Settings Page was added
 -The icons are added inside the settigns page
 
+## 0.0.6
+
+- Fixed the Hover of the icon.
+
 ## 0.0.5
 
 - Added package-lock.json to gitignore
