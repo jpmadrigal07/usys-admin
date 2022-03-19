@@ -1,11 +1,26 @@
 # Changelog
 
-## 0.0.6
+## 0.0.9
 
 - Added dummy Settings page
 - Added dummy StudentType page
 - Added CreateStudentType
 - Added route for createstudenttype at routes/index.js
+
+## 0.0.8
+
+- Added StudentType page
+- Added route for studenttype at routes/index.js
+- Update Table
+
+## 0.0.7
+
+-Settings Page was added
+-The icons are added inside the settigns page
+
+## 0.0.6
+
+- Fixed the Hover of the icon.
 
 ## 0.0.5
 
