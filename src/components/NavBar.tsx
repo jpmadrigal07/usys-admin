@@ -79,7 +79,7 @@ function NavBar(props: any) {
                 <div className={`flex  items-center`}>
                   <Link
                     to="/module"
-                    className={` hover:bg-primary-darker px-4 `}
+                    className={` hover:bg-primary-darker px-4 `} >
                     <Icon
                       icon={"bi:grid-3x3-gap-fill"}
                       fontSize={20}
