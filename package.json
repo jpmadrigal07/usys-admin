@@ -3,6 +3,7 @@
   "version": "0.0.3",
   "description": "This is one of the frontend service of the USYS App",
   "private": true,
+  "proxy": "http://127.0.0.1:5000",
   "dependencies": {
     "@iconify/icons-bi": "^1.1.12",
     "@iconify/react": "^3.1.2",
@@ -15,6 +16,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
     "notistack": "^2.0.3",
+    "prettier": "^2.6.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-query": "^3.34.8",
