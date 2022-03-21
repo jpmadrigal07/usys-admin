@@ -1,6 +1,6 @@
 {
   "name": "usys-admin",
-  "version": "0.0.3",
+  "version": "0.0.9",
   "description": "This is one of the frontend service of the USYS App",
   "private": true,
   "proxy": "http://127.0.0.1:5000",
@@ -69,6 +69,7 @@
     "autoprefixer": "^10.4.2",
     "husky": "^7.0.0",
     "postcss": "^8.4.5",
+    "prettier": "^2.5.1",
     "pretty-quick": "^3.1.3",
     "tailwindcss": "^3.0.13"
   }
