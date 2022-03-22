@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.15
+
+- Added AuthGuard
+- Added AuthGuard to Main Menu and MainLayout
+
 ## 0.0.14
 
 - Make 4 dot navbar icon full height
