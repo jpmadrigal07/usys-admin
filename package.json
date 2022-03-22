@@ -1,6 +1,6 @@
 {
   "name": "usys-admin",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "This is one of the frontend service of the USYS App",
   "private": true,
   "dependencies": {

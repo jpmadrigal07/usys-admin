@@ -5,7 +5,7 @@ import moment from "moment";
 // import { NAVBAR_MENU } from "../constants";
 import { useMutation } from "react-query";
 import { verify } from "../utils/server/auth";
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
 import Cookies from "js-cookie";
 
@@ -77,16 +77,15 @@ function NavBar(props: any) {
             <div className="flex justify-between">
               <div className="flex">
                 <div className={`flex  items-center`}>
-                  <a
-                    href="#"
-                    className={` hover:bg-primary-darker px-4 h-full p-4`}
-                  >
+                  <Link
+                    to="/module"
+                    className={` hover:bg-primary-darker px-4 `} >
                     <Icon
                       icon={"bi:grid-3x3-gap-fill"}
                       fontSize={20}
                       color="#FFFFFF"
                     />
-                  </a>
+                  </Link>
                   <span
                     className={`${fontfamily} ${fontColor} p-3 font-bold hover:bg-primary-darker`}
                   >
