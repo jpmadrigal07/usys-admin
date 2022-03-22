@@ -52,11 +52,15 @@ export default function Router() {
         { path: "settings", element: <Settings /> },
         {
           path: "settings",
-          // element: <Settings />,
           children: [
             { path: "", element: <Settings /> },
-            { path: "studenttype", element: <StudentType /> },
-            { path: "createstudenttype", element: <CreateStudentType /> },
+            {
+              path: "student-type",
+              children: [
+                { path: "", element: <StudentType /> },
+                { path: "add", element: <CreateStudentType /> },
+              ],
+            },
           ],
         },
         {

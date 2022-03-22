@@ -1,9 +1,17 @@
 # Changelog
 
+
 ## 0.0.13
 
 - Create an Add Semester Page
 - Add Route to access "Add Semester Page"
+
+## 0.0.12
+
+- Remove Student Type padding
+- Remove Student Type Add padding
+- Add Component default padding on MainLayout
+- Change Student Type and Student Type Add url pattern
 
 ## 0.0.11
 
