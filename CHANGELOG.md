@@ -1,9 +1,36 @@
 # Changelog
 
-## 0.0.10
+## 0.0.15
 
 - Added AuthGuard
 - Added AuthGuard to Main Menu and MainLayout
+
+## 0.0.14
+
+- Make 4 dot navbar icon full height
+
+## 0.0.13
+
+- Create an Add Semester Page
+- Add Route to access "Add Semester Page"
+
+## 0.0.12
+
+- Remove Student Type padding
+- Remove Student Type Add padding
+- Add Component default padding on MainLayout
+- Change Student Type and Student Type Add url pattern
+
+## 0.0.11
+
+- Added link in navbar icon to redirect user to module page
+
+## 0.0.10
+
+- update Main Menu
+- Change Grades to Registrar
+- Change Registrar to Settings
+- added settings_logo in static
 
 ## 0.0.9
 

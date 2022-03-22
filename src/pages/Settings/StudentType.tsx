@@ -5,7 +5,7 @@ import Table from "../../components/Table";
 
 const StudentType = () => {
   return (
-    <div className="px-10 py-4 ">
+    <div>
       <p className="text-sm text-primary">
         Modules &gt; Settings &gt; Student Type
       </p>

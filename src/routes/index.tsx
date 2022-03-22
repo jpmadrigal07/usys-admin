@@ -61,12 +61,20 @@ export default function Router() {
         { path: "settings", element: <Settings /> },
         {
           path: "settings",
-          // element: <Settings />,
           children: [
             { path: "", element: <Settings /> },
-            { path: "studenttype", element: <StudentType /> },
-            { path: "createstudenttype", element: <CreateStudentType /> },
+            {
+              path: "student-type",
+              children: [
+                { path: "", element: <StudentType /> },
+                { path: "add", element: <CreateStudentType /> },
+              ],
+            },
           ],
+        },
+        {
+          path: "semester",
+          children: [{ path: "create", element: <CreateSemester /> }],
         },
       ],
     },
@@ -97,6 +105,9 @@ const StudentType = Loadable(
 );
 const CreateStudentType = Loadable(
   lazy(() => import("../pages/Settings/CreateStudentType"))
+);
+const CreateSemester = Loadable(
+  lazy(() => import("../pages/Semester/CreateSemester"))
 );
 // Main
 // const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));
