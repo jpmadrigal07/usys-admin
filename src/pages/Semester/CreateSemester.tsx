@@ -5,7 +5,7 @@ import Input from "../../components/Input";
 
 const CreateSemester = () => {
   return (
-    <div className="px-10 py-4 ">
+    <div>
       <p className="text-sm text-primary">
         <Link to={"/semester"}>Semester</Link> &gt;
         <span className="text-dark">Add</span>
