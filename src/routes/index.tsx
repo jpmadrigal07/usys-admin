@@ -63,6 +63,10 @@ export default function Router() {
             },
           ],
         },
+        {
+          path: "semester",
+          children: [{ path: "create", element: <CreateSemester /> }],
+        },
       ],
     },
     // { path: '*', element: <Navigate to="/404" replace /> }
@@ -92,6 +96,9 @@ const StudentType = Loadable(
 );
 const CreateStudentType = Loadable(
   lazy(() => import("../pages/Settings/CreateStudentType"))
+);
+const CreateSemester = Loadable(
+  lazy(() => import("../pages/Semester/CreateSemester"))
 );
 // Main
 // const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));
