@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.12
+
+- Create an Add Semester Page
+- Add Route to access "Add Semester Page"
+
 ## 0.0.11
 
 - Added link in navbar icon to redirect user to module page
