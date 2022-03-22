@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.16
+
+- Added react-toastify package
+- Implement react-toastify globally and in Settings page
+
 ## 0.0.15
 
 - Added AuthGuard

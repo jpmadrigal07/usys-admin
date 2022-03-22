@@ -1,9 +1,11 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import { toast } from "react-toastify";
 
 const Settings = () => {
+  const notify = () => toast("Wow so easy !");
   return (
     <div>
+      <button onClick={notify}>Notifyasdasdasdasd</button>
       <div className="w-full pl-16 py-10 text-ash-gray">
         {" "}
         Module{" "}
