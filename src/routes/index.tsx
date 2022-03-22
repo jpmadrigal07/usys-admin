@@ -2,7 +2,8 @@ import { Suspense, lazy } from "react";
 import { Navigate, useRoutes, useLocation } from "react-router-dom";
 import Loading from "../components/Loading";
 import MainLayout from "../pages/MainLayout";
-
+//guards
+import AuthGuard from "../guards/AuthGuard";
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: React.ElementType) => (props: any) => {
@@ -33,11 +34,19 @@ export default function Router() {
     },
     {
       path: "module",
-      element: <MainMenu />,
+      element: (
+        <AuthGuard>
+          <MainMenu />
+        </AuthGuard>
+      ),
     },
     {
       path: "module",
-      element: <MainLayout />,
+      element: (
+        <AuthGuard>
+          <MainLayout />
+        </AuthGuard>
+      ),
       children: [
         { element: <Navigate to="/module/cashier" replace /> },
         { path: "cashier", element: <Cashier /> },

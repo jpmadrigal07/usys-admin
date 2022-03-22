@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.10
+
+- Added AuthGuard
+- Added AuthGuard to Main Menu and MainLayout
+
 ## 0.0.9
 
 - Added dummy Settings page
