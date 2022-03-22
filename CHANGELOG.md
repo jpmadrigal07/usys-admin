@@ -5,6 +5,13 @@
 - Added link in navbar icon to redirect user to module page
 - Added prettier extension (to commit to work)
 
+## 0.0.10
+
+- update Main Menu
+- Change Grades to Registrar
+- Change Registrar to Settings
+- added settings_logo in static
+
 ## 0.0.9
 
 - Added dummy Settings page
