@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.12
+## 0.0.13
 
 - Create an Add Semester Page
 - Add Route to access "Add Semester Page"
