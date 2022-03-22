@@ -1,5 +1,8 @@
 # Changelog
 
+## 0.0.14
+
+- Make 4 dot navbar icon full height
 
 ## 0.0.13
 
