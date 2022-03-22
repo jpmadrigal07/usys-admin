@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.0.10
+## 0.0.11
 
 - Added link in navbar icon to redirect user to module page
 - Added prettier extension (to commit to work)
