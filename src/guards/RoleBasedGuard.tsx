@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode, useEffect, useState } from "react";
 import { Navigate } from "react-router";
 import { toast } from "react-toastify";
 import Cookies from "js-cookie";
@@ -16,6 +16,12 @@ export function RoleBasedGuard(
   // }: RoleBasedGuardProps
   props: any
 ) {
+  const [currentRole, setCurrentRole] = useState();
+
+  useEffect(() => {
+    setCurrentRole(props.authenticatedUserType);
+  }, [currentRole]);
+
   const notify = () =>
     toast.error(
       "Permission Denied. You do not have permission to access this page"
