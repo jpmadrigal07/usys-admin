@@ -3,6 +3,7 @@
 ## 0.0.17
 
 - Added RoleBasedGuard
+- Added RoleBasedGuard to /settings/student-type/add
 
 ## 0.0.16
 

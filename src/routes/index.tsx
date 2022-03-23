@@ -68,7 +68,14 @@ export default function Router() {
               path: "student-type",
               children: [
                 { path: "", element: <StudentType /> },
-                { path: "add", element: <CreateStudentType /> },
+                {
+                  path: "add",
+                  element: (
+                    <RoleBasedGuard accessibleRoles={["admin"]}>
+                      <CreateStudentType />{" "}
+                    </RoleBasedGuard>
+                  ),
+                },
               ],
             },
           ],

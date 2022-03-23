@@ -1,9 +1,12 @@
 import { Icon } from "@iconify/react";
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Table from "../../components/Table";
 
 const StudentType = () => {
+  const navigate = useNavigate();
+
   return (
     <div>
       <p className="text-sm text-primary">
@@ -11,7 +14,13 @@ const StudentType = () => {
       </p>
       <div className="divide-y divide-solid divide-gray">
         <div className="py-2 m-0">
-          <Button variant="link">
+          {/* to test RoleBasedGuard */}
+          <Button
+            variant="link"
+            onClick={() => {
+              navigate("/module/settings/student-type/add");
+            }}
+          >
             <Icon className="inline mr-2" icon={"bi:plus-lg"} />
             Create
           </Button>
