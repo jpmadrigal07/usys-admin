@@ -1,8 +1,34 @@
 # Changelog
 
-## 0.0.12
+## 0.0.17
 
 - Added RoleBasedGuard
+
+## 0.0.16
+
+- Added react-toastify package
+- Implement react-toastify globally and in Settings page
+
+## 0.0.15
+
+- Added AuthGuard
+- Added AuthGuard to Main Menu and MainLayout
+
+## 0.0.14
+
+- Make 4 dot navbar icon full height
+
+## 0.0.13
+
+- Create an Add Semester Page
+- Add Route to access "Add Semester Page"
+
+## 0.0.12
+
+- Remove Student Type padding
+- Remove Student Type Add padding
+- Add Component default padding on MainLayout
+- Change Student Type and Student Type Add url pattern
 
 ## 0.0.11
 

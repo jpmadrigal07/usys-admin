@@ -2,10 +2,9 @@ import { Suspense, lazy } from "react";
 import { Navigate, useRoutes, useLocation } from "react-router-dom";
 import Loading from "../components/Loading";
 import MainLayout from "../pages/MainLayout";
-
-// Guards
+//guards
+import AuthGuard from "../guards/AuthGuard";
 import RoleBasedGuard from "../guards/RoleBasedGuard";
-
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: React.ElementType) => (props: any) => {
@@ -36,11 +35,19 @@ export default function Router() {
     },
     {
       path: "module",
-      element: <MainMenu />,
+      element: (
+        <AuthGuard>
+          <MainMenu />
+        </AuthGuard>
+      ),
     },
     {
       path: "module",
-      element: <MainLayout />,
+      element: (
+        <AuthGuard>
+          <MainLayout />
+        </AuthGuard>
+      ),
       children: [
         { element: <Navigate to="/module/cashier" replace /> },
         { path: "cashier", element: <Cashier /> },
@@ -55,12 +62,20 @@ export default function Router() {
         { path: "settings", element: <Settings /> },
         {
           path: "settings",
-          // element: <Settings />,
           children: [
             { path: "", element: <Settings /> },
-            { path: "studenttype", element: <StudentType /> },
-            { path: "createstudenttype", element: <CreateStudentType /> },
+            {
+              path: "student-type",
+              children: [
+                { path: "", element: <StudentType /> },
+                { path: "add", element: <CreateStudentType /> },
+              ],
+            },
           ],
+        },
+        {
+          path: "semester",
+          children: [{ path: "create", element: <CreateSemester /> }],
         },
       ],
     },
@@ -91,6 +106,9 @@ const StudentType = Loadable(
 );
 const CreateStudentType = Loadable(
   lazy(() => import("../pages/Settings/CreateStudentType"))
+);
+const CreateSemester = Loadable(
+  lazy(() => import("../pages/Semester/CreateSemester"))
 );
 // Main
 // const ComingSoon = Loadable(lazy(() => import('../pages/ComingSoon')));
