@@ -5,7 +5,7 @@ import Table from "../../components/Table";
 
 import { IProps } from "../../components/Table";
 
-const Semesterr = () => {
+const Semester = () => {
   const [columns, setColumns] = useState<IProps["columns"]>([
     {
       Header: "Name",
@@ -89,4 +89,4 @@ const Semesterr = () => {
   );
 };
 
-export default Semesterr;
+export default Semester;
