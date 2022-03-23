@@ -1,4 +1,5 @@
 import { Icon } from "@iconify/react";
+import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 
 const Settings = () => {
@@ -16,10 +17,12 @@ const Settings = () => {
       <div className="pl-72 text-ash-gray"> Settings </div>
       <div className="grid grid-cols-6 mx-72 py-8 justify-items-center ;\">
         <a href="#" className={` hover:bg-gray px-9 py-5 `}>
-          <div className="text-center grid justify-items-center">
-            {<Icon icon="bi:person-plus" fontSize={45} color="#006fc9" />}
-            <span className="text-ash-gray pt-3">Student Type</span>
-          </div>
+          <Link to={"/module/settings/student-type"}>
+            <div className="text-center grid justify-items-center">
+              {<Icon icon="bi:person-plus" fontSize={45} color="#006fc9" />}
+              <span className="text-ash-gray pt-3">Student Type</span>
+            </div>
+          </Link>
         </a>
         <a href="#" className={` hover:bg-gray px-9 py-5 `}>
           <div className="text-center grid justify-items-center">

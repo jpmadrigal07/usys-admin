@@ -1,29 +1,27 @@
 import { ReactNode } from "react";
 import { Navigate } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import Cookies from "js-cookie";
+import { connect } from "react-redux";
 
 type RoleBasedGuardProps = {
   children: ReactNode;
   accessibleRoles: string[];
 };
 
-const useCurrentRole = () => {
-  // current user role
-  const role = "superuser";
-  return role;
-};
-
-export default function RoleBasedGuard({
-  accessibleRoles,
-  children,
-}: RoleBasedGuardProps) {
-  const currentRole = useCurrentRole();
+export function RoleBasedGuard(
+  //   {
+  //   accessibleRoles,
+  //   children,
+  // }: RoleBasedGuardProps
+  props: any
+) {
   const notify = () =>
     toast.error(
       "Permission Denied. You do not have permission to access this page"
     );
 
-  if (!accessibleRoles.includes(currentRole)) {
+  if (!props.accessibleRoles.includes(props.authenticatedUserType)) {
     notify();
     return (
       <>
@@ -32,5 +30,11 @@ export default function RoleBasedGuard({
     );
   }
 
-  return <>{children}</>;
+  return <>{props.children}</>;
 }
+
+const mapStateToProps = (global: any) => ({
+  authenticatedUserType: global.authenticatedUser.user.type,
+});
+
+export default connect(mapStateToProps, {})(RoleBasedGuard);

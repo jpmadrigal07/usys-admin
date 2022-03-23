@@ -36,6 +36,7 @@ export default function Router() {
     {
       path: "module",
       element: (
+        // <AuthGuard  element={<MainMenu />}/>
         <AuthGuard>
           <MainMenu />
         </AuthGuard>
@@ -44,13 +45,21 @@ export default function Router() {
     {
       path: "module",
       element: (
+        // <AuthGuard  element={<MainLayout />}/>
         <AuthGuard>
           <MainLayout />
         </AuthGuard>
       ),
       children: [
         { element: <Navigate to="/module/cashier" replace /> },
-        { path: "cashier", element: <Cashier /> },
+        {
+          path: "cashier",
+          element: (
+            <RoleBasedGuard>
+              <Cashier />
+            </RoleBasedGuard>
+          ),
+        },
         { path: "accounting", element: <Accounting /> },
         { path: "admission", element: <Admission /> },
         { path: "campuses", element: <Campuses /> },
@@ -71,8 +80,9 @@ export default function Router() {
                 {
                   path: "add",
                   element: (
-                    <RoleBasedGuard accessibleRoles={["admin"]}>
-                      <CreateStudentType />{" "}
+                    // <RoleBasedGuard accessibleRoles={["Admin"]}><CreateStudentType />{" "}</RoleBasedGuard>
+                    <RoleBasedGuard accessibleRoles={["Admin"]}>
+                      <CreateStudentType />
                     </RoleBasedGuard>
                   ),
                 },
