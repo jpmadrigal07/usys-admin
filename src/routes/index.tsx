@@ -3,6 +3,9 @@ import { Navigate, useRoutes, useLocation } from "react-router-dom";
 import Loading from "../components/Loading";
 import MainLayout from "../pages/MainLayout";
 
+// Guards
+import RoleBasedGuard from "../guards/RoleBasedGuard";
+
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: React.ElementType) => (props: any) => {
