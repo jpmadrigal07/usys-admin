@@ -9,60 +9,40 @@ import { Icon } from "@iconify/react";
 import TableClickMenu from "./TableClickMenu";
 import TableCheckbox from "./TableCheckbox";
 
-export interface IProps {
-  data?: any[];
-  columns?: any[];
-  additionalCol?: any;
-}
+const Table = () => {
+  const columns = useMemo(() => COLUMNS, []);
+  const data = useMemo(() => MOCK_DATA, []);
 
-const Table: React.FC<IProps> = ({ data, columns, additionalCol }) => {
-  const tableColumns = useMemo(() => (columns ? columns : COLUMNS), []);
-  const tableData = useMemo(() => (data ? data : MOCK_DATA), []);
-
-  // const additionalCol = (hooks: any) => {
-  //   hooks.visibleColumns.push((columns: any) => [
-  //     {
-  //       id: 'Check',
-  //       Header: ({ getToggleAllRowsSelectedProps }: any) => (
-  //         <TableCheckbox {...getToggleAllRowsSelectedProps()} />
-  //       ),
-  //       Cell: ({ row }: any) => (
-  //         <TableCheckbox {...row.getToggleRowSelectedProps()} />
-  //       ),
-  //     },
-  //     ...columns,
-  //     {
-  //       id: 'Edit',
-  //       Header: '',
-  //       Cell: ({ row, refs }: any) => <TableClickMenu refs={refs} />,
-  //     },
-  //   ])
-  // }
-
-  let tableInstance;
-
-  if (additionalCol) {
-    tableInstance = useTable(
+  const tableHooks = (hooks: any) => {
+    hooks.visibleColumns.push((columns: any) => [
       {
-        columns: tableColumns,
-        data: tableData,
+        id: "Check",
+        Header: ({ getToggleAllRowsSelectedProps }: any) => (
+          <TableCheckbox {...getToggleAllRowsSelectedProps()} />
+        ),
+        Cell: ({ row }: any) => (
+          <TableCheckbox {...row.getToggleRowSelectedProps()} />
+        ),
       },
-      useSortBy,
-      usePagination,
-      useRowSelect,
-      additionalCol
-    );
-  } else {
-    tableInstance = useTable(
+      ...columns,
       {
-        columns: tableColumns,
-        data: tableData,
+        id: "Edit",
+        Header: "",
+        Cell: ({ row, refs }: any) => <TableClickMenu refs={refs} />,
       },
-      useSortBy,
-      usePagination,
-      useRowSelect
-    );
-  }
+    ]);
+  };
+
+  const tableInstance = useTable(
+    {
+      columns: columns,
+      data: data,
+    },
+    useSortBy,
+    usePagination,
+    useRowSelect,
+    tableHooks
+  );
 
   const {
     getTableProps,

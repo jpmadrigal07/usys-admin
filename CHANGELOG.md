@@ -1,11 +1,5 @@
 # Changelog
 
-## 0.0.17
-
-- Added Semester Page with Table
-- Change Table Component to Reusable component
-- Add Route for Semester Page
-
 ## 0.0.16
 
 - Added react-toastify package

@@ -74,7 +74,6 @@ export default function Router() {
         },
         {
           path: "semester",
-          element: <Semester />,
           children: [{ path: "create", element: <CreateSemester /> }],
         },
       ],
@@ -107,7 +106,6 @@ const StudentType = Loadable(
 const CreateStudentType = Loadable(
   lazy(() => import("../pages/Settings/CreateStudentType"))
 );
-const Semester = Loadable(lazy(() => import("../pages/Semester/Semester")));
 const CreateSemester = Loadable(
   lazy(() => import("../pages/Semester/CreateSemester"))
 );
