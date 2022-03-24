@@ -1,9 +1,28 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import CardMenu from "../components/CardMenu";
 import I_Usys_Logo from "../assets/usys_logo.png";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
+import Cookies from "js-cookie";
 
+const navigate = useNavigate();
+const sessionToken = Cookies.get("sessionToken");
+
+const _removeSessionToken = () => {
+  if (sessionToken) {
+    Cookies.remove("sessionToken");
+    setAuthenticatedUser({});
+    console.log("removeSession");
+    navigate("/");
+  }
+};
 const cards = [
+  {
+    id: "4234s934",
+    title: "Logout",
+    img: "./static/logout_logo.png",
+    link: _removeSessionToken(),
+  },
   {
     id: "4234s24",
     title: "Accounting",
@@ -27,12 +46,6 @@ const cards = [
     title: "Cashier",
     img: "./static/cashier_logo.png",
     link: "/module/cashier",
-  },
-  {
-    id: "4234s934",
-    title: "Enrollment",
-    img: "./static/enrollment_logo.png",
-    link: "/module/enrollment",
   },
   {
     id: "42345624",

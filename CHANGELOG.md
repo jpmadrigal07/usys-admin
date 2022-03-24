@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.13
+
+- Added Logout button
+- Added Logout Icon
+
 ## 0.0.12
 
 - Remove Student Type padding
