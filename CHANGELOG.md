@@ -9,6 +9,7 @@
 - Fix unneccessary padding bottom on navbar menu icon
 - Added breadcrumb component for all the pages
 - Fix routes paths for module, settings, student type and student type add
+- Added parameters on RoleBaseGuard on Cashier
 
 ## 0.0.16
 
