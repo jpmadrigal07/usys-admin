@@ -4,6 +4,8 @@ import Loading from "../components/Loading";
 import MainLayout from "../pages/MainLayout";
 //guards
 import AuthGuard from "../guards/AuthGuard";
+import RoleBasedGuard from "../guards/RoleBasedGuard";
+import { PATH_MODULE } from "./path";
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: React.ElementType) => (props: any) => {
@@ -35,21 +37,33 @@ export default function Router() {
     {
       path: "module",
       element: (
+        // <AuthGuard  element={<MainMenu />}/>
         <AuthGuard>
-          <MainMenu />
+          <Module />
         </AuthGuard>
       ),
     },
     {
       path: "module",
       element: (
+        // <AuthGuard  element={<MainLayout />}/>
         <AuthGuard>
           <MainLayout />
         </AuthGuard>
       ),
       children: [
         { element: <Navigate to="/module/cashier" replace /> },
-        { path: "cashier", element: <Cashier /> },
+        {
+          path: "cashier",
+          element: (
+            <RoleBasedGuard
+              accessibleRoles={["Admin"]}
+              prevPath={PATH_MODULE.root}
+            >
+              <Cashier />
+            </RoleBasedGuard>
+          ),
+        },
         { path: "accounting", element: <Accounting /> },
         { path: "admission", element: <Admission /> },
         { path: "campuses", element: <Campuses /> },
@@ -67,7 +81,17 @@ export default function Router() {
               path: "student-type",
               children: [
                 { path: "", element: <StudentType /> },
-                { path: "add", element: <CreateStudentType /> },
+                {
+                  path: "add",
+                  element: (
+                    <RoleBasedGuard
+                      accessibleRoles={["Admin"]}
+                      prevPath={PATH_MODULE.settings.studentType.root}
+                    >
+                      <CreateStudentType />{" "}
+                    </RoleBasedGuard>
+                  ),
+                },
               ],
             },
           ],
@@ -86,7 +110,7 @@ export default function Router() {
 
 // Authentication
 const Login = Loadable(lazy(() => import("../pages/Login")));
-const MainMenu = Loadable(lazy(() => import("../pages/MainMenu")));
+const Module = Loadable(lazy(() => import("../pages/Module")));
 const Registrar = Loadable(lazy(() => import("../pages/Registrar")));
 const DefaultComponents = Loadable(
   lazy(() => import("../pages/DefaultComponents"))

@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import CardMenu from "../components/CardMenu";
 import I_Usys_Logo from "../assets/usys_logo.png";
+import { PATH_MODULE } from "../routes/path";
 
 const cards = [
   {
@@ -50,11 +51,11 @@ const cards = [
     id: "4234324",
     title: "Settings",
     img: "./static/settings_logo.png ",
-    link: "/module/settings",
+    link: PATH_MODULE.settings.root,
   },
 ];
 
-const MainMenu = () => {
+const Module = () => {
   return (
     <div className="h-auto py-5 lg:h-screen grid place-content-center">
       <div>
@@ -75,4 +76,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default Module;

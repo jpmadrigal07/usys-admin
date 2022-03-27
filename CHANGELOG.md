@@ -1,5 +1,16 @@
 # Changelog
 
+## 0.0.17
+
+- Added RoleBasedGuard
+- Added RoleBasedGuard to add student type page
+- Move user auth verify to AuthBased Guard
+- Added toastify for error alert on AuthGuard and RoleBaseGuard
+- Fix unneccessary padding bottom on navbar menu icon
+- Added breadcrumb component for all the pages
+- Fix routes paths for module, settings, student type and student type add
+- Added parameters on RoleBaseGuard on Cashier
+
 ## 0.0.16
 
 - Added react-toastify package
