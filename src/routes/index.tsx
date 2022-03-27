@@ -5,6 +5,7 @@ import MainLayout from "../pages/MainLayout";
 //guards
 import AuthGuard from "../guards/AuthGuard";
 import RoleBasedGuard from "../guards/RoleBasedGuard";
+import { PATH_MODULE } from "./path";
 // ----------------------------------------------------------------------
 
 const Loadable = (Component: React.ElementType) => (props: any) => {
@@ -37,7 +38,7 @@ export default function Router() {
       path: "module",
       element: (
         <AuthGuard>
-          <MainMenu />
+          <Module />
         </AuthGuard>
       ),
     },
@@ -71,7 +72,10 @@ export default function Router() {
                 {
                   path: "add",
                   element: (
-                    <RoleBasedGuard accessibleRoles={["admin"]}>
+                    <RoleBasedGuard
+                      accessibleRoles={["Admin"]}
+                      prevPath={PATH_MODULE.settings.studentType.root}
+                    >
                       <CreateStudentType />{" "}
                     </RoleBasedGuard>
                   ),
@@ -94,7 +98,7 @@ export default function Router() {
 
 // Authentication
 const Login = Loadable(lazy(() => import("../pages/Login")));
-const MainMenu = Loadable(lazy(() => import("../pages/MainMenu")));
+const Module = Loadable(lazy(() => import("../pages/Module")));
 const Registrar = Loadable(lazy(() => import("../pages/Registrar")));
 const DefaultComponents = Loadable(
   lazy(() => import("../pages/DefaultComponents"))

@@ -1,36 +1,33 @@
 import { ReactNode } from "react";
-import { Navigate } from "react-router";
-import { toast, ToastContainer } from "react-toastify";
+import { toast } from "react-toastify";
+import { connect } from "react-redux";
+import { Navigate } from "react-router-dom";
 
 type RoleBasedGuardProps = {
   children: ReactNode;
   accessibleRoles: string[];
+  loggedInUserUserType: string;
+  prevPath: string;
 };
 
-const useCurrentRole = () => {
-  // current user role
-  const role = "superuser";
-  return role;
-};
-
-export default function RoleBasedGuard({
+function RoleBasedGuard({
   accessibleRoles,
   children,
+  loggedInUserUserType,
+  prevPath,
 }: RoleBasedGuardProps) {
-  const currentRole = useCurrentRole();
-  const notify = () =>
-    toast.error(
-      "Permission Denied. You do not have permission to access this page"
-    );
-
-  if (!accessibleRoles.includes(currentRole)) {
-    notify();
-    return (
-      <>
-        <Navigate to={"/module/settings/student-type"} />;
-      </>
-    );
+  if (loggedInUserUserType && !accessibleRoles.includes(loggedInUserUserType)) {
+    toast.warning("Oops! You don't have permission to access that page", {
+      toastId: "roleBasedWarning",
+    });
+    return <Navigate to={prevPath} />;
   }
 
   return <>{children}</>;
 }
+
+const mapStateToProps = (global: any) => ({
+  loggedInUserUserType: global.authenticatedUser.user.type,
+});
+
+export default connect(mapStateToProps, {})(RoleBasedGuard);
