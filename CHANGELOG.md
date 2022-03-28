@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.18
+
+- Added Logout button
+- Added Logout Icon
+
 ## 0.0.17
 
 - Added RoleBasedGuard
