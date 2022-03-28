@@ -10,6 +10,8 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import reducers from "./reducers";
 import reduxThunk from "redux-thunk";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 const store = createStore(
   reducers,
   {},
@@ -25,6 +27,7 @@ ReactDOM.render(
           <Router />
         </BrowserRouter>
       </QueryClientProvider>
+      <ToastContainer />
     </React.StrictMode>
   </Provider>,
   document.getElementById("root")

@@ -1,29 +1,27 @@
-// ----------------------------------------------------------------------
-
-// function path(root: string, sublink: string) {
-//   return `${root}${sublink}`;
-// }
-
-// const ROOTS_AUTH = '/auth';
-// const ROOTS_DASHBOARD = '/dashboard';
+function path(root: string, sublink: string) {
+  return `${root}${sublink}`;
+}
 
 // ----------------------------------------------------------------------
-
-// export const PATH_AUTH = {
-//   root: ROOTS_AUTH,
-//   login: path(ROOTS_AUTH, '/login'),
-//   loginUnprotected: path(ROOTS_AUTH, '/login-unprotected'),
-//   register: path(ROOTS_AUTH, '/register'),
-//   registerUnprotected: path(ROOTS_AUTH, '/register-unprotected'),
-//   resetPassword: path(ROOTS_AUTH, '/reset-password'),
-//   verify: path(ROOTS_AUTH, '/verify')
-// };
+const ROOT_LOGIN = "/";
+const ROOT_MODULE = "/module";
+const ROOT_SETTINGS = "/settings";
+const ROOT_STUDENT_TYPE = "/student-type";
+// ----------------------------------------------------------------------
+const ADD_PAGE = "/add";
+// ----------------------------------------------------------------------
 
 export const PATH_PAGE = {
-  login: '/login',
-  mainMenu: '/main-menu',
-  campuses: '/campuses',
-  cashier: '/cashier',
-  registrar: '/registrar',
-  // TODO: add routes for selected student
+  login: ROOT_LOGIN,
+};
+
+export const PATH_MODULE = {
+  root: ROOT_MODULE,
+  settings: {
+    root: path(ROOT_MODULE, ROOT_SETTINGS),
+    studentType: {
+      root: path(ROOT_MODULE, `${ROOT_SETTINGS}${ROOT_STUDENT_TYPE}`),
+      add: path(ROOT_MODULE, `${ROOT_SETTINGS}${ROOT_STUDENT_TYPE}${ADD_PAGE}`),
+    },
+  },
 };

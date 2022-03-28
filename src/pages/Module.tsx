@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
 import Cookies from "js-cookie";
 
-const MainMenu = () => {
+const Module = () => {
   const navigate = useNavigate();
   const sessionToken = Cookies.get("sessionToken");
 
@@ -102,4 +102,4 @@ const MainMenu = () => {
   );
 };
 
-export default MainMenu;
+export default Module;

@@ -1,11 +1,7 @@
 import { Icon } from "@iconify/react";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
-import moment from "moment";
-// import { NAVBAR_MENU } from "../constants";
-import { useMutation } from "react-query";
-import { verify } from "../utils/server/auth";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
 import Cookies from "js-cookie";
 
@@ -19,48 +15,23 @@ const drawerHeight = "h-[calc(100vh-50px)]";
 const shadows = "drop-shadow-md";
 const linkColor = "text-primary-darker hover:underline underline-offset-1";
 
-type T_MENU = {
-  page: string;
-  path: string;
-};
-
 function NavBar(props: any) {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false);
   const [isDrawerOpen, setDrawerOpen] = useState(false);
   const [isDrawerAccountOpen, setDrawerAccountOpen] = useState(false);
 
   const { setAuthenticatedUser, name } = props;
-  const router = useLocation();
-  const navigate = useNavigate();
-
-  const [currentPage, setCurrentPage] = useState("");
-  const [time, setTime] = useState(new Date().getTime());
 
   const sessionToken = Cookies.get("sessionToken");
 
   const loggedInName = name ? name : "Admin";
 
-  const { mutate: triggerTokenVerify, isLoading: isTokenVerifyLoading } =
-    useMutation(async (tokenVerify: any) => verify(tokenVerify), {
-      onError: async () => {
-        navigate("/");
-      },
-    });
-
-  useEffect(() => {
-    triggerTokenVerify({ token: sessionToken });
-  }, [sessionToken, triggerTokenVerify]);
-
-  useEffect(() => {
-    setCurrentPage(router.pathname);
-  }, [router.pathname]);
-
   const _removeSessionToken = () => {
     if (sessionToken) {
       Cookies.remove("sessionToken");
       setAuthenticatedUser({});
-      console.log("removeSession");
-      navigate("/");
+      window.location.href = "/";
     }
   };
 
@@ -76,16 +47,19 @@ function NavBar(props: any) {
           <div className="max-w-12xl mx-auto px-1">
             <div className="flex justify-between">
               <div className="flex">
-                <div className={`flex  items-center`}>
-                  <Link
-                    to="/module"
-                    className={` hover:bg-primary-darker px-4 `} >
-                    <Icon
-                      icon={"bi:grid-3x3-gap-fill"}
-                      fontSize={20}
-                      color="#FFFFFF"
-                    />
-                  </Link>
+                <div className={`flex items-center`}>
+                  <div className={`h-full hover:bg-primary-darker px-3`}>
+                    <button
+                      className={`mt-[14px]`}
+                      onClick={() => navigate("/module")}
+                    >
+                      <Icon
+                        icon={"bi:grid-3x3-gap-fill"}
+                        fontSize={23}
+                        color="#FFFFFF"
+                      />
+                    </button>
+                  </div>
                   <span
                     className={`${fontfamily} ${fontColor} p-3 font-bold hover:bg-primary-darker`}
                   >
@@ -398,9 +372,7 @@ function NavBar(props: any) {
                       </div>
                       <div className="col-span-2 p-5">
                         <p className="text-md font-semibold truncate">
-                          {isTokenVerifyLoading
-                            ? "Loading..."
-                            : `Hello ${loggedInName}!`}
+                          Hello ${loggedInName}!
                         </p>
                         <p
                           className={`${fontfamily} font-light text-sm w-fit text-dark`}

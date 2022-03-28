@@ -1,9 +1,39 @@
 # Changelog
 
-## 0.0.13
+## 0.0.18
 
 - Added Logout button
 - Added Logout Icon
+
+## 0.0.17
+
+- Added RoleBasedGuard
+- Added RoleBasedGuard to add student type page
+- Move user auth verify to AuthBased Guard
+- Added toastify for error alert on AuthGuard and RoleBaseGuard
+- Fix unneccessary padding bottom on navbar menu icon
+- Added breadcrumb component for all the pages
+- Fix routes paths for module, settings, student type and student type add
+- Added parameters on RoleBaseGuard on Cashier
+
+## 0.0.16
+
+- Added react-toastify package
+- Implement react-toastify globally and in Settings page
+
+## 0.0.15
+
+- Added AuthGuard
+- Added AuthGuard to Main Menu and MainLayout
+
+## 0.0.14
+
+- Make 4 dot navbar icon full height
+
+## 0.0.13
+
+- Create an Add Semester Page
+- Add Route to access "Add Semester Page"
 
 ## 0.0.12
 
