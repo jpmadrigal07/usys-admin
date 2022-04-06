@@ -1,5 +1,12 @@
 # Changelog
 
+
+## 0.0.19
+
+- Added Semester Page with Table
+- Change Table Component to Reusable Component
+- Added Route for Semester Page
+
 ## 0.0.18
 
 - Added Logout button
