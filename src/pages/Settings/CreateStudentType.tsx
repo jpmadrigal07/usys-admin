@@ -1,16 +1,30 @@
 import { Icon } from "@iconify/react";
-import React from "react";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
+import Breadcrumb from "../../components/Breadcrumb";
 
 const CreateStudentType = () => {
+  const links = [
+    {
+      name: "Module",
+      path: "/module",
+    },
+    {
+      name: "Settings",
+      path: "/module/settings",
+    },
+    {
+      name: "Student Type",
+      path: "/module/settings/student-type",
+    },
+    {
+      name: "Add",
+      path: "/module/settings/student-type/add",
+    },
+  ];
   return (
     <div>
-      <p className="text-sm text-primary">
-        Modules &gt; Settings &gt; Student Type &gt;
-        <span className="text-dark">Create</span>
-      </p>
-
+      <Breadcrumb links={links} />
       <div>
         {" "}
         <p className="sm: py-5 text-sm">Create Student Type</p>{" "}

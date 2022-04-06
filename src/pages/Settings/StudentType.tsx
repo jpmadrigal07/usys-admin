@@ -1,17 +1,38 @@
 import { Icon } from "@iconify/react";
-import React from "react";
+import { useNavigate } from "react-router-dom";
 import Button from "../../components/Button";
 import Table from "../../components/Table";
+import { PATH_MODULE } from "../../routes/path";
+import Breadcrumb from "../../components/Breadcrumb";
 
 const StudentType = () => {
+  const navigate = useNavigate();
+  const links = [
+    {
+      name: "Module",
+      path: "/module",
+    },
+    {
+      name: "Settings",
+      path: "/module/settings",
+    },
+    {
+      name: "Student Type",
+      path: "/module/settings/student-type",
+    },
+  ];
   return (
     <div>
-      <p className="text-sm text-primary">
-        Modules &gt; Settings &gt; Student Type
-      </p>
+      <Breadcrumb links={links} />
       <div className="divide-y divide-solid divide-gray">
         <div className="py-2 m-0">
-          <Button variant="link">
+          {/* to test RoleBasedGuard */}
+          <Button
+            variant="link"
+            onClick={() => {
+              navigate(PATH_MODULE.settings.studentType.add);
+            }}
+          >
             <Icon className="inline mr-2" icon={"bi:plus-lg"} />
             Create
           </Button>

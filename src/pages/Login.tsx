@@ -1,30 +1,23 @@
-import Input from '../components/Input';
-import Button from '../components/Button';
-import React, { useState, useEffect } from "react";
-import Message from '../components/Message';
+import Input from "../components/Input";
+import Button from "../components/Button";
+import { useState } from "react";
 import { useMutation } from "react-query";
-
-import axios, { AxiosError } from "axios";
 import { connect } from "react-redux";
 import Cookies from "js-cookie";
-
-// import { useHistory } from "react-router-dom";
-import { useNavigate } from 'react-router-dom'
-import { Icon } from '@iconify/react';
-
 import { login } from "../utils/server/auth";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { setAuthenticatedUser } from "../actions/authenticatedUserActions";
-
+import { useLocation } from "react-router-dom";
 
 const Login = (props: any) => {
   const { setAuthenticatedUser } = props;
+  const { pathname } = useLocation();
   const MySwal = withReactContent(Swal);
-  const navigate = useNavigate();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const { mutate: triggerLogin, isLoading: isLoginLoading } = useMutation(
+  const [isLoading, setIsLoading] = useState(false);
+  const { mutate: triggerLogin } = useMutation(
     async (user: any) => login(user),
     {
       onSuccess: async (data) => {
@@ -35,9 +28,10 @@ const Login = (props: any) => {
           type: userType,
           name: data.name,
         });
-        navigate("/module");
+        window.location.href = `${pathname !== "/" ? pathname : "/module"}`;
       },
       onError: async (err: any) => {
+        setIsLoading(false);
         MySwal.fire({
           title: "Ooops!",
           text: err,
@@ -50,6 +44,7 @@ const Login = (props: any) => {
   );
   const _login = (e: any) => {
     e.preventDefault();
+    setIsLoading(true);
     triggerLogin({
       email: username,
       password,
@@ -63,38 +58,50 @@ const Login = (props: any) => {
           <div className="mt-[10vh] bg-light h-[280px] min-w-[350px] rounded-sm shadow-sm">
             <div className="p-4">
               <div className="flex justify-between">
-                <div className={`font-black text-3xl text-dark`}>Admin Login</div>
-                <div className='bg-usys-logo bg-no-repeat bg-cover w-10 h-10'></div>
+                <div className={`font-black text-3xl text-dark`}>
+                  Admin Login
+                </div>
+                <div className="bg-usys-logo bg-no-repeat bg-cover w-10 h-10"></div>
               </div>
               <div>
                 <div className="flex flex-col">
-                  <label className={`text-sm font-medium w-fit mt-4 py-1 text-ash-gray`}>Email address</label>
+                  <label
+                    className={`text-sm font-medium w-fit mt-4 py-1 text-ash-gray`}
+                  >
+                    Email address
+                  </label>
                   <Input
-                    size='md'
-                    className='w-full'
-                    variant='email'
-                    disabled={isLoginLoading}
+                    size="md"
+                    className="w-full"
+                    variant="email"
+                    disabled={isLoading}
                     onChange={(e: any) => setUsername(e.target.value)}
                   ></Input>
                 </div>
                 <div className="flex flex-col">
-                  <label className={`text-sm font-medium w-fit mt-4 py-1 text-ash-gray`}>Password</label>
+                  <label
+                    className={`text-sm font-medium w-fit mt-4 py-1 text-ash-gray`}
+                  >
+                    Password
+                  </label>
                   <Input
-                    size='md'
-                    className='w-full'
-                    variant='password'
-                    disabled={isLoginLoading}
+                    size="md"
+                    className="w-full"
+                    variant="password"
+                    disabled={isLoading}
                     onChange={(e: any) => setPassword(e.target.value)}
                   ></Input>
                 </div>
               </div>
               <div className="flex text-center mt-5">
                 <Button
-                  variant='primary'
-                  size='md'
-                  disable={isLoginLoading}
-                  type='submit'
-                >Sign in</Button>
+                  variant="primary"
+                  size="md"
+                  disable={isLoading}
+                  type="submit"
+                >
+                  Sign in
+                </Button>
               </div>
             </div>
           </div>
@@ -102,7 +109,7 @@ const Login = (props: any) => {
       </form>
     </>
   );
-}
+};
 
 const mapStateToProps = () => ({});
 
